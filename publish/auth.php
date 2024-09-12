@@ -40,7 +40,7 @@ return [
             'provider' => 'users',
 
             /*
-             * 以下是 simple-jwt 配置
+             * 以下是 jwt 配置
              * 必填
              * jwt 服务端身份标识
              */
@@ -92,7 +92,6 @@ return [
              * 可选配置
              * 缓存类
              */
-            // 'cache' => new \Doctrine\Common\Cache\FilesystemCache(sys_get_temp_dir()),
             // 如果需要分布式部署，请选择 redis 或者其他支持分布式的缓存驱动
             'cache' => function () {
                 return make(HyperfRedisCache::class);
@@ -160,7 +159,6 @@ return [
              * 可选配置
              * 缓存类
              */
-            // 'cache' => new \Doctrine\Common\Cache\FilesystemCache(sys_get_temp_dir()),
             // 如果需要分布式部署，请选择 redis 或者其他支持分布式的缓存驱动
             'cache' => function () {
                 return make(HyperfRedisCache::class);
