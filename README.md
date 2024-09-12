@@ -20,7 +20,7 @@ hyperf 的 auth 组件，目前支持 jwt、session、sso 驱动。用户可以�
 ## 安装 - install
 
 ```bash
-$ composer require ella123/hyperf-auth
+composer require ella123/hyperf-auth
 ```
 
 ## 配置 - configuration
