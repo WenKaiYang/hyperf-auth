@@ -1,7 +1,6 @@
 <?php
 
 declare(strict_types=1);
-
 /**
  * This file is part of Hyperf.
  *
@@ -10,7 +9,6 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
-
 use ELLa123\HyperfAuth\Guard\JwtGuard;
 use ELLa123\HyperfAuth\Guard\SessionGuard;
 use ELLa123\HyperfAuth\Guard\SsoGuard;
@@ -58,13 +56,13 @@ return [
              * 可选配置
              * jwt 生命周期，单位秒，默认一天
              */
-            'ttl' => (int)env('JWT_TTL', 60 * 60 * 24),
+            'ttl' => (int) env('JWT_TTL', 60 * 60 * 24),
 
             /*
              * 可选配置
              * 允许过期多久以内的 token 进行刷新，单位秒，默认一周
              */
-            'refresh_ttl' => (int)env('JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
+            'refresh_ttl' => (int) env('JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
 
             /*
              * 可选配置
@@ -126,13 +124,13 @@ return [
              * 可选配置
              * jwt 生命周期，单位秒，默认一天
              */
-            'ttl' => (int)env('JWT_TTL', 60 * 60 * 24),
+            'ttl' => (int) env('JWT_TTL', 60 * 60 * 24),
 
             /*
              * 可选配置
              * 允许过期多久以内的 token 进行刷新，单位秒，默认一周
              */
-            'refresh_ttl' => (int)env('JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
+            'refresh_ttl' => (int) env('JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
 
             /*
              * 可选配置
@@ -182,7 +180,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => EloquentProvider::class,
-            'model' => '',// 需要实现 ELLa123\HyperfAuth\Authenticatable 接口用户模型
+            'model' => '', // 需要实现 ELLa123\HyperfAuth\Authenticatable 接口用户模型
         ],
     ],
 ];

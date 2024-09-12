@@ -48,5 +48,4 @@ class HyperfRedisCache extends Cache
     {
         return $this->driver->delete($key) >= 0;
     }
-
 }

@@ -37,12 +37,11 @@ class JwtGuard extends AbstractAuthGuard
      * JwtGuardAbstract constructor.
      */
     public function __construct(
-        array            $config,
-        string           $name,
-        UserProvider     $userProvider,
+        array $config,
+        string $name,
+        UserProvider $userProvider,
         RequestInterface $request
-    )
-    {
+    ) {
         parent::__construct($config, $name, $userProvider);
         $this->headerName = $config['header_name'] ?? 'Authorization';
         $this->jwtManager = new JWTManager($config);
@@ -145,7 +144,7 @@ class JwtGuard extends AbstractAuthGuard
      */
     public function guest(?string $token = null): bool
     {
-        return !$this->check($token);
+        return ! $this->check($token);
     }
 
     /**

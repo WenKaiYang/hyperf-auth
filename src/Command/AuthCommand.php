@@ -40,14 +40,18 @@ class AuthCommand extends HyperfCommand
     public function gen($key, ?string $value = null): void
     {
         if (empty(env($key))) {
-            file_put_contents(BASE_PATH . '/.env', sprintf(
-                PHP_EOL . '%s=%s', $key,
-                $value ?? Str::random(16)),
-                FILE_APPEND);
+            file_put_contents(
+                BASE_PATH . '/.env',
+                sprintf(
+                    PHP_EOL . '%s=%s',
+                    $key,
+                    $value ?? Str::random(16)
+                ),
+                FILE_APPEND
+            );
             $this->info($key . ' 已生成!');
         } else {
             $this->info($key . ' 已存在!');
         }
     }
-
 }
