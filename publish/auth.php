@@ -46,7 +46,7 @@ return [
              * 必填
              * jwt 服务端身份标识
              */
-            'secret' => env('SSO_JWT_SECRET'),
+            'secret' => env('JWT_SSO_SECRET'),
 
             /*
              * 可选配置
@@ -58,13 +58,13 @@ return [
              * 可选配置
              * jwt 生命周期，单位秒，默认一天
              */
-            'ttl' => (int)env('SIMPLE_JWT_TTL', 60 * 60 * 24),
+            'ttl' => (int)env('JWT_TTL', 60 * 60 * 24),
 
             /*
              * 可选配置
              * 允许过期多久以内的 token 进行刷新，单位秒，默认一周
              */
-            'refresh_ttl' => (int)env('SIMPLE_JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
+            'refresh_ttl' => (int)env('JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
 
             /*
              * 可选配置
@@ -104,18 +104,17 @@ return [
              * 可选配置
              * 缓存前缀
              */
-            'prefix' => env('SIMPLE_JWT_PREFIX', 'default'),
+            'prefix' => env('JWT_PREFIX', 'default'),
         ],
         'jwt' => [
             'driver' => JwtGuard::class,
             'provider' => 'users',
 
             /*
-             * 以下是 simple-jwt 配置
              * 必填
              * jwt 服务端身份标识
              */
-            'secret' => env('SIMPLE_JWT_SECRET'),
+            'secret' => env('JWT_SECRET', ''),
 
             /*
              * 可选配置
@@ -127,13 +126,13 @@ return [
              * 可选配置
              * jwt 生命周期，单位秒，默认一天
              */
-            'ttl' => (int)env('SIMPLE_JWT_TTL', 60 * 60 * 24),
+            'ttl' => (int)env('JWT_TTL', 60 * 60 * 24),
 
             /*
              * 可选配置
              * 允许过期多久以内的 token 进行刷新，单位秒，默认一周
              */
-            'refresh_ttl' => (int)env('SIMPLE_JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
+            'refresh_ttl' => (int)env('JWT_REFRESH_TTL', 60 * 60 * 24 * 7),
 
             /*
              * 可选配置
@@ -173,7 +172,7 @@ return [
              * 可选配置
              * 缓存前缀
              */
-            'prefix' => env('SIMPLE_JWT_PREFIX', 'default'),
+            'prefix' => env('JWT_PREFIX', 'default'),
         ],
         'session' => [
             'driver' => SessionGuard::class,
