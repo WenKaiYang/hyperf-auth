@@ -46,14 +46,3 @@ if (! function_exists('str_random')) {
         return $randomString;
     }
 }
-
-if (! function_exists('dev_clock')) {
-    function dev_clock(string $title, callable $handler)
-    {
-        $start = microtime(true);
-        $result = $handler();
-        $end = microtime(true);
-        dump($title . ' 用时：' . (($end - $start) * 1000) . 'ms');
-        return $result;
-    }
-}

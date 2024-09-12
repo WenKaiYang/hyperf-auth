@@ -15,15 +15,15 @@ namespace ELLa123\HyperfAuth\Guard;
 use ELLa123\HyperfAuth\Authenticatable;
 use ELLa123\HyperfAuth\Exception\AuthException;
 use ELLa123\HyperfAuth\Exception\UnauthorizedException;
-use ELLa123\HyperfAuth\UserProvider;
-use Hyperf\Context\Context;
-use Hyperf\HttpServer\Contract\RequestInterface;
-use Hyperf\Utils\Str;
+use ELLa123\HyperfAuth\Provider\UserProvider;
 use ELLa123\HyperfJwt\Exceptions\InvalidTokenException;
 use ELLa123\HyperfJwt\Exceptions\JWTException;
 use ELLa123\HyperfJwt\Exceptions\SignatureException;
 use ELLa123\HyperfJwt\Exceptions\TokenExpiredException;
 use ELLa123\HyperfJwt\JWTManager;
+use Hyperf\Context\Context;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\Utils\Str;
 
 class JwtGuard extends AbstractAuthGuard
 {
@@ -37,11 +37,12 @@ class JwtGuard extends AbstractAuthGuard
      * JwtGuardAbstract constructor.
      */
     public function __construct(
-        array $config,
-        string $name,
-        UserProvider $userProvider,
+        array            $config,
+        string           $name,
+        UserProvider     $userProvider,
         RequestInterface $request
-    ) {
+    )
+    {
         parent::__construct($config, $name, $userProvider);
         $this->headerName = $config['header_name'] ?? 'Authorization';
         $this->jwtManager = new JWTManager($config);
@@ -66,7 +67,7 @@ class JwtGuard extends AbstractAuthGuard
     {
         $token = $this->getJwtManager()->make(array_merge($payload, [
             'uid' => $user->getId(),
-            's' => str_random(),
+            's' => Str::random(6),
         ]))->token();
 
         Context::set($this->resultKey($token), $user);
@@ -144,7 +145,7 @@ class JwtGuard extends AbstractAuthGuard
      */
     public function guest(?string $token = null): bool
     {
-        return ! $this->check($token);
+        return !$this->check($token);
     }
 
     /**

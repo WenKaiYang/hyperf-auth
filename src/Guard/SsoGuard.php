@@ -14,15 +14,15 @@ namespace ELLa123\HyperfAuth\Guard;
 
 use ELLa123\HyperfAuth\Authenticatable;
 use ELLa123\HyperfAuth\Events\ForcedOfflineEvent;
-use ELLa123\HyperfAuth\UserProvider;
-use Hyperf\Context\Context;
-use Hyperf\HttpServer\Contract\RequestInterface;
-use Hyperf\Redis\Redis;
-use Psr\EventDispatcher\EventDispatcherInterface;
+use ELLa123\HyperfAuth\Provider\UserProvider;
 use ELLa123\HyperfJwt\Exceptions\InvalidTokenException;
 use ELLa123\HyperfJwt\Exceptions\JWTException;
 use ELLa123\HyperfJwt\Exceptions\SignatureException;
 use ELLa123\HyperfJwt\Exceptions\TokenExpiredException;
+use Hyperf\Context\Context;
+use Hyperf\HttpServer\Contract\RequestInterface;
+use Hyperf\Redis\Redis;
+use Psr\EventDispatcher\EventDispatcherInterface;
 
 class SsoGuard extends JwtGuard
 {

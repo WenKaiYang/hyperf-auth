@@ -24,7 +24,11 @@ class AuthCommand extends HyperfCommand
      */
     protected $name = 'gen:auth';
 
-    protected string $description = 'Set the JWT secret key used to sign the tokens';
+    public function configure()
+    {
+        parent::configure();
+        $this->setDescription('Create an authorization key');
+    }
 
     public function handle(): void
     {
@@ -46,8 +50,4 @@ class AuthCommand extends HyperfCommand
         }
     }
 
-    public function getArguments()
-    {
-        return [];
-    }
 }

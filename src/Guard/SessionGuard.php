@@ -15,7 +15,7 @@ namespace ELLa123\HyperfAuth\Guard;
 use ELLa123\HyperfAuth\Authenticatable;
 use ELLa123\HyperfAuth\Exception\AuthException;
 use ELLa123\HyperfAuth\Exception\UnauthorizedException;
-use ELLa123\HyperfAuth\UserProvider;
+use ELLa123\HyperfAuth\Provider\UserProvider;
 use Hyperf\Context\Context;
 use Hyperf\Contract\SessionInterface;
 

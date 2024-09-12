@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace ELLa123\HyperfAuth;
 
+use ELLa123\HyperfAuth\Provider\UserProvider;
+
 interface AuthGuard
 {
     public function id();

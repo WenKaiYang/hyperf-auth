@@ -12,8 +12,6 @@ declare(strict_types=1);
 
 namespace ELLa123\HyperfAuth\Provider;
 
-use ELLa123\HyperfAuth\UserProvider;
-
 abstract class AbstractUserProvider implements UserProvider
 {
     protected array $config;

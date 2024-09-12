@@ -14,6 +14,7 @@ namespace ELLa123\HyperfAuth;
 
 use ELLa123\HyperfAuth\Exception\GuardException;
 use ELLa123\HyperfAuth\Exception\UserProviderException;
+use ELLa123\HyperfAuth\Provider\UserProvider;
 use Hyperf\Contract\ConfigInterface;
 
 /**

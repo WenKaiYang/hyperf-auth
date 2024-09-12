@@ -10,7 +10,9 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace ELLa123\HyperfAuth;
+namespace ELLa123\HyperfAuth\Provider;
+
+use ELLa123\HyperfAuth\Authenticatable;
 
 interface UserProvider
 {

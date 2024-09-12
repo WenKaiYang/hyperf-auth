@@ -14,7 +14,7 @@ namespace ELLa123\HyperfAuth\Guard;
 
 use ELLa123\HyperfAuth\Authenticatable;
 use ELLa123\HyperfAuth\AuthGuard;
-use ELLa123\HyperfAuth\UserProvider;
+use ELLa123\HyperfAuth\Provider\UserProvider;
 
 abstract class AbstractAuthGuard implements AuthGuard
 {
