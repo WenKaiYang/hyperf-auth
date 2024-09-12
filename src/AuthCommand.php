@@ -21,7 +21,7 @@ class AuthCommand extends HyperfCommand
     /**
      * 执行的命令行.
      */
-    protected $name = 'gen:auth-env';
+    protected $name = 'gen:auth';
 
     public function handle(): void
     {

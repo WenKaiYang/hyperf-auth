@@ -21,7 +21,7 @@
   },
   "require": {
     "php": ">=8.0",
-    "96qbhy/simple-jwt": "^1.4",
+    "ella123/hyperf-jwt": "dev-master",
     "hyperf/cache": "2.2.*",
     "hyperf/command": "2.2.*",
     "hyperf/config": "2.2.*",

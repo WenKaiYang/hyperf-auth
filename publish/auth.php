@@ -16,9 +16,9 @@ use ELLa123\HyperfAuth\Guard\SessionGuard;
 use ELLa123\HyperfAuth\Guard\SsoGuard;
 use ELLa123\HyperfAuth\HyperfRedisCache;
 use ELLa123\HyperfAuth\Provider\EloquentProvider;
+use ELLa123\HyperfJwt\Encoders;
+use ELLa123\HyperfJwt\EncryptAdapters as Encrypter;
 use Hyperf\Redis\Redis;
-use Qbhy\SimpleJwt\Encoders;
-use Qbhy\SimpleJwt\EncryptAdapters as Encrypter;
 
 return [
     'default' => [
@@ -74,7 +74,7 @@ return [
 
             /*
              * 可选配置
-             * 加密类必须实现 Qbhy\SimpleJwt\Interfaces\Encrypter 接口
+             * 加密类必须实现 ELLa123\HyperfJwt\Interfaces\Encrypter 接口
              */
             'drivers' => [
                 Encrypter\PasswordHashEncrypter::alg() => Encrypter\PasswordHashEncrypter::class,
@@ -143,7 +143,7 @@ return [
 
             /*
              * 可选配置
-             * 加密类必须实现 Qbhy\SimpleJwt\Interfaces\Encrypter 接口
+             * 加密类必须实现 ELLa123\HyperfJwt\Interfaces\Encrypter 接口
              */
             'drivers' => [
                 Encrypter\PasswordHashEncrypter::alg() => Encrypter\PasswordHashEncrypter::class,

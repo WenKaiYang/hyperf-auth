@@ -19,10 +19,10 @@ use Hyperf\Context\Context;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\Redis\Redis;
 use Psr\EventDispatcher\EventDispatcherInterface;
-use Qbhy\SimpleJwt\Exceptions\InvalidTokenException;
-use Qbhy\SimpleJwt\Exceptions\JWTException;
-use Qbhy\SimpleJwt\Exceptions\SignatureException;
-use Qbhy\SimpleJwt\Exceptions\TokenExpiredException;
+use ELLa123\HyperfJwt\Exceptions\InvalidTokenException;
+use ELLa123\HyperfJwt\Exceptions\JWTException;
+use ELLa123\HyperfJwt\Exceptions\SignatureException;
+use ELLa123\HyperfJwt\Exceptions\TokenExpiredException;
 
 class SsoGuard extends JwtGuard
 {
