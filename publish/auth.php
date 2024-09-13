@@ -15,8 +15,8 @@ use ELLa123\HyperfAuth\Guard\SsoGuard;
 use ELLa123\HyperfAuth\Provider\EloquentProvider;
 use ELLa123\HyperfJwt\Encoders;
 use ELLa123\HyperfJwt\EncryptAdapters as Encrypter;
+use Hyperf\Cache\Cache;
 use Hyperf\Redis\Redis;
-use Psr\SimpleCache\CacheInterface;
 
 return [
     'default' => [
@@ -94,7 +94,7 @@ return [
              */
             // 如果需要分布式部署，请选择 redis 或者其他支持分布式的缓存驱动
             'cache' => function () {
-                return make(CacheInterface::class);
+                return make(Cache::class);
             },
 
             /*
@@ -161,7 +161,7 @@ return [
              */
             // 如果需要分布式部署，请选择 redis 或者其他支持分布式的缓存驱动
             'cache' => function () {
-                return make(CacheInterface::class);
+                return make(Cache::class);
             },
 
             /*

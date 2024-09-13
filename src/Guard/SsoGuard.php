@@ -51,10 +51,6 @@ class SsoGuard extends JwtGuard
     }
 
     /**
-     * @param Authenticatable $user
-     * @param array $payload
-     * @param string|null $client
-     * @return string
      * @throws InvalidTokenException
      * @throws SignatureException
      * @throws \RedisException

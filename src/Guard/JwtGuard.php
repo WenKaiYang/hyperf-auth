@@ -39,12 +39,11 @@ class JwtGuard extends AbstractAuthGuard
      * JwtGuardAbstract constructor.
      */
     public function __construct(
-        array            $config,
-        string           $name,
-        UserProvider     $userProvider,
+        array $config,
+        string $name,
+        UserProvider $userProvider,
         RequestInterface $request
-    )
-    {
+    ) {
         parent::__construct($config, $name, $userProvider);
         $this->headerName = $config['header_name'] ?? 'Authorization';
         $this->jwtManager = new JWTManager($config);
@@ -147,7 +146,7 @@ class JwtGuard extends AbstractAuthGuard
      */
     public function guest(?string $token = null): bool
     {
-        return !$this->check($token);
+        return ! $this->check($token);
     }
 
     /**
@@ -179,6 +178,7 @@ class JwtGuard extends AbstractAuthGuard
     }
 
     /**
+     * @param null|mixed $token
      * @throws InvalidTokenException
      * @throws TokenExpiredException
      * @throws SignatureException
@@ -198,12 +198,11 @@ class JwtGuard extends AbstractAuthGuard
     }
 
     /**
-     * @param mixed|null $token
-     * @return array|null
+     * @param null|mixed $token
      * @throws InvalidTokenException
      * @throws SignatureException
      */
-    public function getPayload(string $token = null): ?array
+    public function getPayload(?string $token = null): ?array
     {
         if ($token = $token ?? $this->parseToken()) {
             return $this->getJwtManager()->justParse($token)->getPayload();
@@ -217,15 +216,15 @@ class JwtGuard extends AbstractAuthGuard
     }
 
     /**
-     * @param mixed|null $token
-     * @return mixed|null
+     * @param null|mixed $token
+     * @return null|mixed
      * @throws InvalidTokenException
      * @throws SignatureException
      * @throws TokenExpiredException
      * @throws TokenBlacklistException
      * @throws TokenNotActiveException
      */
-    public function id(string $token = null): mixed
+    public function id(?string $token = null): mixed
     {
         if ($token = $token ?? $this->parseToken()) {
             return $this->getJwtManager()->parse($token)->getPayload()['uid'];
