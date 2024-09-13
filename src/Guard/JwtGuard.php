@@ -26,6 +26,7 @@ use ELLa123\HyperfJwt\JWTManager;
 use Hyperf\Context\Context;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\Utils\Str;
+use Psr\SimpleCache\InvalidArgumentException;
 
 class JwtGuard extends AbstractAuthGuard
 {
@@ -155,6 +156,7 @@ class JwtGuard extends AbstractAuthGuard
      * @throws InvalidTokenException
      * @throws JWTException
      * @throws SignatureException
+     * @throws InvalidArgumentException
      */
     public function refresh(?string $token = null): ?string
     {
@@ -178,14 +180,14 @@ class JwtGuard extends AbstractAuthGuard
     }
 
     /**
-     * @param null|mixed $token
      * @throws InvalidTokenException
      * @throws TokenExpiredException
      * @throws SignatureException
      * @throws TokenNotActiveException
      * @throws TokenBlacklistException
+     * @throws InvalidArgumentException
      */
-    public function logout($token = null): bool
+    public function logout(?string $token = null): bool
     {
         if ($token = $token ?? $this->parseToken()) {
             Context::set($this->resultKey($token), null);
@@ -216,13 +218,12 @@ class JwtGuard extends AbstractAuthGuard
     }
 
     /**
-     * @param null|mixed $token
-     * @return null|mixed
      * @throws InvalidTokenException
      * @throws SignatureException
      * @throws TokenExpiredException
      * @throws TokenBlacklistException
      * @throws TokenNotActiveException
+     * @throws InvalidArgumentException
      */
     public function id(?string $token = null): mixed
     {

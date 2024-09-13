@@ -23,6 +23,7 @@ use Hyperf\Context\Context;
 use Hyperf\HttpServer\Contract\RequestInterface;
 use Hyperf\Redis\Redis;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use Psr\SimpleCache\InvalidArgumentException;
 
 class SsoGuard extends JwtGuard
 {
@@ -79,6 +80,7 @@ class SsoGuard extends JwtGuard
      * @throws JWTException
      * @throws InvalidTokenException
      * @throws TokenExpiredException
+     * @throws InvalidArgumentException
      */
     public function refresh(?string $token = null, ?string $client = null): ?string
     {

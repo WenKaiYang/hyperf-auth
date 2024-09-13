@@ -24,7 +24,7 @@ class AuthCommand extends HyperfCommand
      */
     protected $name = 'gen:auth';
 
-    public function configure()
+    public function configure(): void
     {
         parent::configure();
         $this->setDescription('Create a new authorization key');
