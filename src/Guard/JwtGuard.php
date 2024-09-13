@@ -39,11 +39,12 @@ class JwtGuard extends AbstractAuthGuard
      * JwtGuardAbstract constructor.
      */
     public function __construct(
-        array $config,
-        string $name,
-        UserProvider $userProvider,
+        array            $config,
+        string           $name,
+        UserProvider     $userProvider,
         RequestInterface $request
-    ) {
+    )
+    {
         parent::__construct($config, $name, $userProvider);
         $this->headerName = $config['header_name'] ?? 'Authorization';
         $this->jwtManager = new JWTManager($config);
@@ -146,7 +147,7 @@ class JwtGuard extends AbstractAuthGuard
      */
     public function guest(?string $token = null): bool
     {
-        return ! $this->check($token);
+        return !$this->check($token);
     }
 
     /**
@@ -155,7 +156,6 @@ class JwtGuard extends AbstractAuthGuard
      * @throws InvalidTokenException
      * @throws JWTException
      * @throws SignatureException
-     * @throws TokenExpiredException
      */
     public function refresh(?string $token = null): ?string
     {
@@ -178,6 +178,13 @@ class JwtGuard extends AbstractAuthGuard
         return null;
     }
 
+    /**
+     * @throws InvalidTokenException
+     * @throws TokenExpiredException
+     * @throws SignatureException
+     * @throws TokenNotActiveException
+     * @throws TokenBlacklistException
+     */
     public function logout($token = null): bool
     {
         if ($token = $token ?? $this->parseToken()) {
@@ -191,12 +198,12 @@ class JwtGuard extends AbstractAuthGuard
     }
 
     /**
-     * @param null|mixed $token
+     * @param mixed|null $token
      * @return array|null
      * @throws InvalidTokenException
      * @throws SignatureException
      */
-    public function getPayload($token = null): ?array
+    public function getPayload(string $token = null): ?array
     {
         if ($token = $token ?? $this->parseToken()) {
             return $this->getJwtManager()->justParse($token)->getPayload();
@@ -218,7 +225,7 @@ class JwtGuard extends AbstractAuthGuard
      * @throws TokenBlacklistException
      * @throws TokenNotActiveException
      */
-    public function id(mixed $token = null): mixed
+    public function id(string $token = null): mixed
     {
         if ($token = $token ?? $this->parseToken()) {
             return $this->getJwtManager()->parse($token)->getPayload()['uid'];
