@@ -19,7 +19,9 @@ use ELLa123\HyperfAuth\Provider\UserProvider;
 use ELLa123\HyperfJwt\Exceptions\InvalidTokenException;
 use ELLa123\HyperfJwt\Exceptions\JWTException;
 use ELLa123\HyperfJwt\Exceptions\SignatureException;
+use ELLa123\HyperfJwt\Exceptions\TokenBlacklistException;
 use ELLa123\HyperfJwt\Exceptions\TokenExpiredException;
+use ELLa123\HyperfJwt\Exceptions\TokenNotActiveException;
 use ELLa123\HyperfJwt\JWTManager;
 use Hyperf\Context\Context;
 use Hyperf\HttpServer\Contract\RequestInterface;
@@ -190,8 +192,8 @@ class JwtGuard extends AbstractAuthGuard
 
     /**
      * @param null|mixed $token
+     * @return array|null
      * @throws InvalidTokenException
-     * @throws TokenExpiredException
      * @throws SignatureException
      */
     public function getPayload($token = null): ?array
@@ -208,12 +210,15 @@ class JwtGuard extends AbstractAuthGuard
     }
 
     /**
-     * @param null|mixed $token
+     * @param mixed|null $token
+     * @return mixed|null
      * @throws InvalidTokenException
-     * @throws TokenExpiredException
      * @throws SignatureException
+     * @throws TokenExpiredException
+     * @throws TokenBlacklistException
+     * @throws TokenNotActiveException
      */
-    public function id($token = null)
+    public function id(mixed $token = null): mixed
     {
         if ($token = $token ?? $this->parseToken()) {
             return $this->getJwtManager()->parse($token)->getPayload()['uid'];

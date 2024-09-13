@@ -51,10 +51,13 @@ class SsoGuard extends JwtGuard
     }
 
     /**
-     * @throws \RedisException
-     * @throws SignatureException
+     * @param Authenticatable $user
+     * @param array $payload
+     * @param string|null $client
+     * @return string
      * @throws InvalidTokenException
-     * @throws TokenExpiredException
+     * @throws SignatureException
+     * @throws \RedisException
      */
     public function login(Authenticatable $user, array $payload = [], ?string $client = null): string
     {
