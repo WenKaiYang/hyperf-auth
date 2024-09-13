@@ -48,7 +48,7 @@ php bin/hyperf.php vendor:publish ella123/hyperf-auth
 生成 `.env` 配置项
 
 ```bash
-php bin/hyperf.php gen:auth-env
+php bin/hyperf.php gen:auth
 ```
 
 ## 使用 - usage
