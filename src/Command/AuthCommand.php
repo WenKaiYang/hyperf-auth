@@ -32,7 +32,7 @@ class AuthCommand extends HyperfCommand
 
     public function handle(): void
     {
-        $this->gen('AUTH_SSO_CLIENTS', 'h5,weapp');
+        $this->gen('AUTH_SSO_CLIENTS', 'h5,app,pc');
         $this->gen('JWT_SSO_SECRET');
         $this->gen('JWT_SECRET');
     }
