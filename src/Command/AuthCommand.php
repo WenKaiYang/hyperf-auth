@@ -24,7 +24,7 @@ class AuthCommand extends HyperfCommand
      */
     protected $name = 'gen:auth';
 
-    public function configure()
+    public function configure(): void
     {
         parent::configure();
         $this->setDescription('Create a new authorization key');
@@ -49,9 +49,9 @@ class AuthCommand extends HyperfCommand
                 ),
                 FILE_APPEND
             );
-            $this->info($key . ' 已生成!');
+            $this->line($key . ' 已生成!', 'info');
         } else {
-            $this->info($key . ' 已存在!');
+            $this->line($key . ' 已存在!', 'info');
         }
     }
 }
