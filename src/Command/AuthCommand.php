@@ -49,9 +49,9 @@ class AuthCommand extends HyperfCommand
                 ),
                 FILE_APPEND
             );
-            $this->line($key . ' 已生成!', 'info');
+            $this->info($key . ' 已生成!');
         } else {
-            $this->line($key . ' 已存在!', 'info');
+            $this->info($key . ' 已存在!');
         }
     }
 }
