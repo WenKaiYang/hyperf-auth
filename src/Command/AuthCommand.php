@@ -27,7 +27,7 @@ class AuthCommand extends HyperfCommand
     public function configure()
     {
         parent::configure();
-        $this->setDescription('Create an authorization key');
+        $this->setDescription('Create a new authorization key');
     }
 
     public function handle(): void
@@ -45,7 +45,7 @@ class AuthCommand extends HyperfCommand
                 sprintf(
                     PHP_EOL . '%s=%s',
                     $key,
-                    $value ?? Str::random(16)
+                    $value ?? hash('sha256', Str::random(32))
                 ),
                 FILE_APPEND
             );
