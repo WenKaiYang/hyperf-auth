@@ -12,7 +12,10 @@
   "autoload": {
     "psr-4": {
       "ELLa123\\HyperfAuth\\": "src/"
-    }
+    },
+    "files": [
+      "src/helper.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
