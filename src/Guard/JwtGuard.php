@@ -69,7 +69,7 @@ class JwtGuard extends AbstractAuthGuard
     {
         $token = $this->getJwtManager()->make(array_merge($payload, [
             'uid' => $user->getId(),
-            's' => Str::random(6),
+            's' => Str::random(32),
         ]))->token();
 
         Context::set($this->resultKey($token), $user);

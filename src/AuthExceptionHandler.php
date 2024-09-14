@@ -22,6 +22,7 @@ class AuthExceptionHandler extends ExceptionHandler
     public function handle(\Throwable $throwable, ResponseInterface $response): ResponseInterface
     {
         $this->stopPropagation();
+        /* @var UnauthorizedException $throwable */
         return $response->withStatus(code: $throwable->getStatusCode())->withBody(new SwooleStream('Unauthorized.'));
     }
 
