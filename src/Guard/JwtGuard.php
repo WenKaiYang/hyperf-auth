@@ -25,7 +25,7 @@ use ELLa123\HyperfJwt\Exceptions\TokenNotActiveException;
 use ELLa123\HyperfJwt\JWTManager;
 use Hyperf\Context\Context;
 use Hyperf\HttpServer\Contract\RequestInterface;
-use Hyperf\Utils\Str;
+use Hyperf\Stringable\Str;
 use Psr\SimpleCache\InvalidArgumentException;
 
 class JwtGuard extends AbstractAuthGuard
@@ -69,7 +69,7 @@ class JwtGuard extends AbstractAuthGuard
     {
         $token = $this->getJwtManager()->make(array_merge($payload, [
             'uid' => $user->getId(),
-            's' => Str::random(6),
+            's' => Str::random(32),
         ]))->token();
 
         Context::set($this->resultKey($token), $user);

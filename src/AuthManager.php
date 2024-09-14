@@ -17,6 +17,8 @@ use ELLa123\HyperfAuth\Exception\UserProviderException;
 use ELLa123\HyperfAuth\Provider\UserProvider;
 use Hyperf\Contract\ConfigInterface;
 
+use function Hyperf\Support\make;
+
 /**
  * Class AuthManager.
  * @method login(Authenticatable $user)

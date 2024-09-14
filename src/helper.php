@@ -11,7 +11,7 @@ declare(strict_types=1);
  */
 use ELLa123\HyperfAuth\AuthGuard;
 use ELLa123\HyperfAuth\AuthManager;
-use Hyperf\Utils\ApplicationContext;
+use Hyperf\Context\ApplicationContext;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 

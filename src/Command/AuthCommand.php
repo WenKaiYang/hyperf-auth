@@ -14,7 +14,9 @@ namespace ELLa123\HyperfAuth\Command;
 
 use Hyperf\Command\Annotation\Command;
 use Hyperf\Command\Command as HyperfCommand;
-use Hyperf\Utils\Str;
+use Hyperf\Stringable\Str;
+
+use function Hyperf\Support\env;
 
 #[Command]
 class AuthCommand extends HyperfCommand
@@ -22,7 +24,7 @@ class AuthCommand extends HyperfCommand
     /**
      * 执行的命令行.
      */
-    protected $name = 'gen:auth';
+    protected ?string $name = 'gen:auth';
 
     public function configure(): void
     {

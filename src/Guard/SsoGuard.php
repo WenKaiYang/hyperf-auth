@@ -25,6 +25,8 @@ use Hyperf\Redis\Redis;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\SimpleCache\InvalidArgumentException;
 
+use function Hyperf\Support\make;
+
 class SsoGuard extends JwtGuard
 {
     /**
@@ -55,6 +57,7 @@ class SsoGuard extends JwtGuard
      * @throws InvalidTokenException
      * @throws SignatureException
      * @throws \RedisException
+     * @throws InvalidArgumentException
      */
     public function login(Authenticatable $user, array $payload = [], ?string $client = null): string
     {
