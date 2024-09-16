@@ -14,7 +14,6 @@ namespace ELLa123\HyperfAuth\Provider;
 
 use ELLa123\HyperfAuth\Authenticatable;
 use ELLa123\HyperfAuth\Exception\UserProviderException;
-use RuntimeException;
 
 class EloquentProvider extends AbstractUserProvider
 {
@@ -24,7 +23,7 @@ class EloquentProvider extends AbstractUserProvider
             throw new UserProviderException('Please configure model');
         }
 
-        if (!method_exists($this->config['model'], 'retrieveById')) {
+        if (! method_exists($this->config['model'], 'retrieveById')) {
             throw new UserProviderException('The Authenticatable interface is not implemented in the ' . $this->config['model'] . ' model');
         }
 
