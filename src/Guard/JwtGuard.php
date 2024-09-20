@@ -212,6 +212,15 @@ class JwtGuard extends AbstractAuthGuard
         return null;
     }
 
+    /**
+     * @throws InvalidTokenException
+     * @throws SignatureException
+     */
+    public function getPayloadExpires(?string $token = null): int
+    {
+        return (int) ($this->getPayload($token)['exp'] ?? 0);
+    }
+
     public function getJwtManager(): JWTManager
     {
         return $this->jwtManager;
