@@ -66,6 +66,12 @@ return [
 
             /*
              * 可选配置
+             * 允许多就以内的 token 失效还访问，默认五分钟
+             */
+            'transitional_ttl' => env('JWT_TRANSITIONAL_TTL', 60 * 5),
+
+            /*
+             * 可选配置
              * 默认使用的加密类
              */
             'default' => Encrypter\SHA1Encrypter::class,
@@ -92,7 +98,6 @@ return [
              * 可选配置
              * 缓存类
              */
-            // 如果需要分布式部署，请选择 redis 或者其他支持分布式的缓存驱动
             'cache' => function () {
                 return make(Cache::class);
             },
@@ -133,6 +138,12 @@ return [
 
             /*
              * 可选配置
+             * 允许多就以内的 token 失效还访问，默认五分钟
+             */
+            'transitional_ttl' => env('JWT_TRANSITIONAL_TTL', 60 * 5),
+
+            /*
+             * 可选配置
              * 默认使用的加密类
              */
             'default' => Encrypter\SHA1Encrypter::class,
@@ -159,7 +170,6 @@ return [
              * 可选配置
              * 缓存类
              */
-            // 如果需要分布式部署，请选择 redis 或者其他支持分布式的缓存驱动
             'cache' => function () {
                 return make(Cache::class);
             },
