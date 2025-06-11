@@ -17,6 +17,8 @@ use ELLa123\HyperfJwt\Encoders;
 use ELLa123\HyperfJwt\EncryptAdapters as Encrypter;
 use Hyperf\Cache\Cache;
 use Hyperf\Redis\Redis;
+use function Hyperf\Support\env;
+use function Hyperf\Support\make;
 
 return [
     'default' => [
